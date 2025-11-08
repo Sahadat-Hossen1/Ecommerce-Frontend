@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter, Route, RouterProvider, Routes } from "react-router-dom";
+import { router } from "./Layout/Router/router";
 
-export default function App() {
-  return (
-    < >
-    <div className='flex items-center'>
-      <NavLink></NavLink>
-  <h1 className='text-center text-2xl text-red-500 mx-auto '>Hello World</h1>
-    </div>
-    </>
-  )
-}
+
+const App = () => {
+  return <RouterProvider router={router}></RouterProvider>;
+ 
+};
+
+export default App;
+
