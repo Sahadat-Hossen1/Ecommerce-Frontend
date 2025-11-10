@@ -37,6 +37,9 @@ export const router=createBrowserRouter(
       {
         path:"/singup",
         element:<SingUp></SingUp>
+      },{
+        path:"*",
+        element:<div className="flex justify-center items-center "><h1>404 Not Found</h1></div>
       }
     ]
   }

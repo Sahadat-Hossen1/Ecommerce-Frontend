@@ -1,7 +1,10 @@
 import React from 'react'
+import Nav from '../Nav/Nav'
 
 export default function Header() {
   return (
-    <div className='text-red-600 text-8xl'>Header</div>
+    <div>
+      <Nav/>
+    </div>
   )
 }
