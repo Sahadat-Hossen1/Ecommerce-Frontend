@@ -9,6 +9,7 @@ import {
 
 import { MdClose } from "react-icons/md";
 import SearchBar from "./SearchBar";
+import ShopingCart from "../../Cart/ShopingCart";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,11 @@ export default function Nav() {
     // alert()
     setIsOpnSearch(!isOpenSearch);
   };
+  // for shoping cart 
+  const [isCart,setIsCart]=useState(false)
+  const toggleCart=()=>{
+    setIsCart(!isCart)
+  }
   // this for ul items
   const ulItems = (
     <>
@@ -79,7 +85,7 @@ export default function Nav() {
               <FiUser className="w-4 h-4  md:w-6 md:h-6" />
             </NavLink>
             </li>
-            <li>
+            <li onClick={toggleCart}>
               <FiShoppingCart className="w-4 h-4  md:w-6 md:h-6" />
             </li>
             {/* for search icon */}
@@ -88,6 +94,7 @@ export default function Nav() {
             </li>
           </ul>
         </div>
+        {/* for showing searchbar in nave */}
         {isOpenSearch && (
           <div className=" absolute top-1/2 right-1 transform -translate-y-1/2 w-3/5 md:w-1/4  bg-gray-100 transition-all duration-1000">
             <SearchBar
@@ -96,7 +103,16 @@ export default function Nav() {
             />
           </div>
         )}
-      </nav>
+      {/* for show shoping cart */}
+      {isCart && (
+          <div className=" absolute top-0 right-1 w-1/2 md:w-1/4">
+            <ShopingCart
+              isCart={isCart}
+              toggleCart={toggleCart}
+            />
+          </div>
+        )}
+        </nav>
     </div>
   );
 }
