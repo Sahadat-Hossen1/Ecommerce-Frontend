@@ -1,11 +1,14 @@
-import react from "react";
+import react, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { TiSocialFacebook,TiSocialInstagram,TiSocialGithub,TiSocialLinkedin } from "react-icons/ti";
+import { Context } from "../../ContextApi/ContextApi";
 
 
-export default function Footer() {
+
+export default function Footer() {const {user}=useContext(Context)
   return (
     <div className="bg-amber-100  flex flex-col   items-center p-3">
+        {user?.name}
      <div className="flex space-x-10 justify-between">
          {/* this for subscription */}
       <div className="w-full md:w-3/5   flex flex-col space-y-3   ">
