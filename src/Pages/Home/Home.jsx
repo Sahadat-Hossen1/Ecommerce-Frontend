@@ -1,7 +1,12 @@
 import React from 'react'
+import HomeBanner from './HomeBanner'
+import HomeCategory from './HomeCategory'
 
 export default function Home() {
   return (
-    <div className='text-4xl '>this is  Home page</div>
+    <div className=''>
+      <HomeBanner></HomeBanner>
+      <HomeCategory></HomeCategory>
+    </div>
   )
 }
