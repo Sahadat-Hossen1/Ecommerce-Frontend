@@ -1,30 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Components/ContextApi/ContextApi";
+import Card from "../../Components/Cart/Card";
 // import images from "public/Headphone.jpg"
 
 export default function HomeCategory() {
   const { Unic_Category_Name, Products_Data } = useContext(Context);
-  // for select and take the value of category name
-  // HsCategory =H(Home)s(selected)
-  const [HsCategory, setHsCategory] = useState(null);
-  const [filterByCategory, setFilterByCategory] = useState([]);
-  const handleCategory = (category) => {
-    setHsCategory(category);
-  };
-  useEffect(() => {
-    const filter = Products_Data.filter((product) =>
-      product.category.includes(HsCategory)
-    );
-    setFilterByCategory(filter);
-  }, [HsCategory]);
-  // use slice for show minimum amaunt of products
-  const slice_product = HsCategory
-    ? filterByCategory.slice(6)
-    : Products_Data.slice(-20, -1);
+
+  // for audio category
+  let Audio = Products_Data.filter((product) =>
+    product.category.includes("audio")
+  ).slice(1, 7);
+  // for gaming category
+
+  let Gaming = Products_Data.filter((product) =>
+    product.category.includes("gaming")
+  ).slice(1, 7);
+  // for mobile category
+
+  let Mobile = Products_Data.filter((product) =>
+    product.category.includes("mobile")
+  ).slice(1, 7);
+  // for tv category
+  let Tv = Products_Data.filter((product) =>
+    product.category.includes("tv")
+  ).slice(1, 4);
 
   return (
-    <div>
-      <h1 className="py-4 text-center text-2xl font-bold font-serif">
+    <div className="bg-[#F4F4F4] ">
+      <h1 className="py-4  text-center text-2xl font-bold font-serif">
         Select A Categroy
       </h1>
       <div className="mx-4 md:mx-20 rounded-2xl flex gap-2 items-center justify-center  py-2 bg-amber-200  text-2xl ">
@@ -39,66 +42,58 @@ export default function HomeCategory() {
           </ul>
         ))}
       </div>
-      {/* for show some cart */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
-        {/* {slice_product.map((product, i) => (
-          <div
-            key={i}
-            className="w-full md:  flex flex-col space-y-2 "
-            
-          >
-              <img
-                // src={product.image}
-                src='../../../public/Headphone.jpg'
-                alt=""
-                className=" w-full max-h-[150px]  rounded-t-2xl"
-              />
-              <div className="mx-2 w-full h-72 bg-amber-500">
-
-              <h1 className="text-2xl md:text-3xl ">{product.model} </h1>
-
-              <h2 className="text-xl ">Price:{product.price} </h2>
-              <h3 className="text-lg">
-                Brand_Name:<span className="uppercase">{product.brand}</span>{" "}
-              </h3>
-              <div className="flex justify-between  py-3 ">
-                <button className="bg-gray-200 px-5 py-2 rounded-2xl text-lg hover:bg-gray-400">
-                  Deailts{" "}
-                </button>
-                <button className="bg-gray-300 px-5 py-2 rounded-2xl text-lg hover:bg-gray-400">
-                  {" "}
-                  Buy Now
-                </button>
-              </div>
-              </div>
-            
+      {/* for show some cart by category filter */}
+      <div>
+        {/*for filtering by audio  */}
+        <div>
+          <h2 className="pl-2 upercase text-2xl xl:3xl font-serif font-semibold">
+            Audio
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 px-2 py-4 mx-auto  ">
+            {Audio.map((product, i) => (
+              <Card product={product} i={i} />
+            ))}
           </div>
-        ))} */}
-        {slice_product.map((product, i) => (
-          <div
-            key={i}
-            className="w-80 bg-white shadow-2xl flex flex-col rounded-2xl"
-          >
-            <img src={product.image} alt="" className="w-full h-52 " />
-            <div className="mx-2">
-              <h1 className="text-2xl md:text-3xl ">{product.model} </h1>
-
-              <h2 className="text-xl ">Price:{product.price} </h2>
-              <h3 className="text-lg">
-                Brand_Name:<span className="uppercase">{product.brand}</span>{" "}
-              </h3>
-              <div className="flex justify-between  py-3 ">
-                <button className="bg-gray-200 px-5 py-2 rounded-2xl text-lg hover:bg-gray-400">
-                  Deailts{" "}
-                </button>
-                <button className="bg-gray-300 px-5 py-2 rounded-2xl text-lg hover:bg-gray-400">
-                  {" "}
-                  Buy Now
-                </button>
-              </div>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
+            {Mobile.map((product, i) => (
+              <Card product={product} i={i}></Card>
+            ))}
           </div>
-        ))}
+        </div>
+        {/*for filtering by  gaming   */}{" "}
+        <div>
+          <h3 className=" pl-2 uppercase text-2xl xl:3xl font-serif font-semibold">
+            gaming
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
+            {Gaming.map((product, i) => (
+              <Card product={product} i={i} />
+            ))}
+          </div>
+        </div>
+        {/*for filtering by mobile  */}{" "}
+        <div>
+          <h4 className="pl-2 upercase text-2xl xl:3xl font-serif font-semibold">
+            mobile
+          </h4>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
+            {Mobile.map((product, i) => (
+              <Card product={product} i={i} />
+            ))}
+          </div>
+        </div>
+        {/*for filtering by tv  */}{" "}
+        <div>
+          <h5 className="pl-2 upercase text-2xl xl:3xl font-serif font-semibold">
+            {" "}
+            tv
+          </h5>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
+            {Tv.map((product, i) => (
+              <Card product={product} i={i} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
