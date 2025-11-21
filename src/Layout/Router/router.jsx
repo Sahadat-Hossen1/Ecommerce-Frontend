@@ -20,27 +20,27 @@ export const router=createBrowserRouter(
         element:<Home></Home>
       },
       {
-        path:"/about",
+        path:"./about",
         element:<About></About>
       },
       {
-        path:"/allproduct",
+        path:"./allproduct",
         element:<AllProduct></AllProduct>
       },
       {
-        path:"/contact",
+        path:"./contact",
         element:<Contact></Contact>
       },
       {
-        path:"/singin",
+        path:"./singin",
         element:<SingIn></SingIn>
       },
       {
-        path:"/singup",
+        path:"./singup",
         element:<SingUp></SingUp>
       },
       {
-        path:"/profile",
+        path:"./profile",
         element:<Profile></Profile>
       },{
         path:"*",
