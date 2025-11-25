@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../../Components/ContextApi/ContextApi";
+
 import Card from "../../Components/Cart/Card";
 // import images from "public/Headphone.jpg"
+import { Product_Context } from './../../Components/ContextApi/ContextApi';
 
 export default function HomeCategory() {
-  const { Unic_Category_Name, Products_Data } = useContext(Context);
+  const { Unic_Category_Name, Products_Data } = useContext(Product_Context);
 
   // for audio category
   let Audio = Products_Data.filter((product) =>

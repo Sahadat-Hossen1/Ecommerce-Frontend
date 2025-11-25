@@ -31,23 +31,23 @@ export default function Nav() {
   // this for ul items
   const ulItems = (
     <>
-      <li className="font-serif hover:text-black text-gray-700 hover:bg-amber-100 p-2">
+      <li className="font-serif hover:text-black text-gray-700 hover:bg-amber-100 rounded p-2">
         <NavLink to="/">home</NavLink>
       </li>
-      <li className="font-serif hover:text-black text-gray-700 hover:bg-amber-100 p-2">
+      <li className="font-serif hover:text-black text-gray-700 hover:bg-amber-100 rounded p-2">
         <NavLink to="/about">about</NavLink>
       </li>
-      <li className="font-serif hover:text-black text-gray-700 hover:bg-amber-100 p-2">
+      <li className="font-serif hover:text-black text-gray-700 hover:bg-amber-100 rounded p-2">
         <NavLink to="/allproduct">allproduct</NavLink>
       </li>
-      <li className="font-serif hover:text-black text-gray-700 hover:bg-amber-100 p-2">
+      <li className="font-serif hover:text-black text-gray-700 hover:bg-amber-100 rounded p-2">
         <NavLink to="/contact">contact</NavLink>
       </li>
     </>
   );
   return (
-    <div className="flex justify-between">
-      <nav className="flex items-center justify-between bg-amber-100 w-full py-3 px-2 relative">
+    <div className="flex justify-between bg-white shadow-2xs mb-2 md:mb-6">
+      <nav className="flex items-center justify-between  w-full py-3 px-2 relative">
         {/* this is for nav logo  */}
         <div className="flex items-center justify-center space-x-2">
           {!isOpen ? (
@@ -85,7 +85,7 @@ export default function Nav() {
               <FiUser className="w-4 h-4  md:w-6 md:h-6" />
             </NavLink>
             </li>
-            <li onClick={toggleCart}>
+            <li onClick={toggleCart} className="relative">
               <FiShoppingCart className="w-4 h-4  md:w-6 md:h-6" />
             </li>
             {/* for search icon */}
@@ -105,7 +105,7 @@ export default function Nav() {
         )}
       {/* for show shoping cart */}
       {isCart && (
-          <div className=" absolute top-0 right-1 w-1/2 md:w-1/4">
+          <div className=" absolute top-0 right-1 w-1/2 md:w-1/4 100 transition-all duration-1000">
             <ShopingCart
               isCart={isCart}
               toggleCart={toggleCart}
