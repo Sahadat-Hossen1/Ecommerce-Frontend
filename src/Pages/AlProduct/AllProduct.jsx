@@ -23,7 +23,7 @@ export default function AllProduct() {
             <MdFilterList className="w-6 h-6" />{" "}
           </button>
         </div>
-        {/* {isOpen && <Filter handle_filter_togol={handle_filter_togol} />} */}
+        
         {isOpen && (
           <div
             className={`fixed top-0 left-0 min-h-screen w-64 bg-white shadow-2xl 

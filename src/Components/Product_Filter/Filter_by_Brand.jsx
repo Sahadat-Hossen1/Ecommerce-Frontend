@@ -21,7 +21,7 @@ export default function Filter_by_Brand() {
   return (
     <div>
       <h1 className="py-1 text-xl font-semibold">Brand Name:</h1>
-      <div className={`flex flex-col bg-gray-100 ${toggleMore ? "max-h[1000px] ": "max-h$[34px]"}`}>
+      <div className={`flex flex-col ${toggleMore ? "max-h[1000px] ": "max-h$[34px]"}`}>
         {slice_brand_name.map((Brand, i) => (
           <form key={i} className="flex space-x-1 ">
             <input

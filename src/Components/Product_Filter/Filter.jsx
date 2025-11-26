@@ -8,7 +8,7 @@ export default function Filter({ handle_filter_togol }) {
   return (
     // <div className="  w-1/2 md:w-full   shadow-sm -mt-3.5">
      <div
-      className="w-64 px-2 bg-amber-100 shadow-2xl"
+      className="w-64 max-h-[1000px] px-2 overflow-y-auto bg-amber-100 shadow-2xl"
      > 
       <div className="  flex justify-end ">
         <MdClose className="w-6 h-6" onClick={handle_filter_togol} />

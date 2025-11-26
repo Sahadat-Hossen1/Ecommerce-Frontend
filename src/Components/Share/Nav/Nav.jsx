@@ -82,15 +82,15 @@ export default function Nav() {
           <ul className="flex space-x-2">
             <li><NavLink to="/profile">
             
-              <FiUser className="w-4 h-4  md:w-6 md:h-6" />
+              <FiUser className="w-6 h-6" />
             </NavLink>
             </li>
             <li onClick={toggleCart} className="relative">
-              <FiShoppingCart className="w-4 h-4  md:w-6 md:h-6" />
+              <FiShoppingCart className="w-6 h-6" />
             </li>
             {/* for search icon */}
             <li onClick={toggleSearch} className=" relative">
-              <FiSearch className="w-4 h-4   md:w-6 md:h-6" />
+              <FiSearch className="w-6 h-6" />
             </li>
           </ul>
         </div>
