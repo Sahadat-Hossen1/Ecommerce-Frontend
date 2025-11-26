@@ -1,37 +1,37 @@
 import React, { useContext, useState } from "react";
 import { Product_Context } from "./../ContextApi/ContextApi";
 import "./style.css";
-export default function Filter_by_Brand() {
-  const { Unic_Brand_Name, SelectedBrand, setSelectedBrand } =
+export default function Filter_by_Color() {
+  const { Unic_Color_Name, SelectedColor, setSelectedColor } =
     useContext(Product_Context);
   const [toggleMore, setToggleMore] = useState(false);
-  const slice_brand_name = toggleMore
-    ? Unic_Brand_Name
-    : Unic_Brand_Name.slice(1, 6);
-  // console.log(slice_brand_name.length);
+  const slice_Color_name = toggleMore
+    ? Unic_Color_Name
+    : Unic_Color_Name.slice(1, 6);
+  // console.log(slice_Color_name.length);
 
-  const handleCheckedSelected = (Brand) => {
-    if (SelectedBrand.includes(Brand)) {
-      setSelectedBrand(SelectedBrand.filter((b) => b !== Brand));
+  const handleCheckedSelected = (Color) => {
+    if (SelectedColor.includes(Color)) {
+      setSelectedColor(SelectedColor.filter((c) => c !== Color));
     } else {
-      setSelectedBrand([...SelectedBrand, Brand]);
+      setSelectedColor([...SelectedColor, Color]);
     }
   };
 
   return (
     <div>
-      <h1 className="py-1 text-xl font-semibold">Brand Name:</h1>
-      <div className={`flex flex-col bg-gray-100 ${toggleMore ? "max-h[1000px] ": "max-h$[34px]"}`}>
-        {slice_brand_name.map((Brand, i) => (
-          <form key={i} className="flex space-x-1 ">
+      <h1 className="py-1 text-xl font-semibold">Color Name:</h1>
+      <div className="flex flex-col">
+        {slice_Color_name.map((Color, i) => (
+          <li key={i} className="flex space-x-1 ">
             <input
               type="checkbox"
-              checked={SelectedBrand.includes(Brand)}
-              onChange={() => handleCheckedSelected(Brand)}
+              checked={SelectedColor.includes(Color)}
+              onChange={() => handleCheckedSelected(Color)}
               id={`item-${i}`}
             />
-            <label htmlFor={`Brand-${i}`} >{Brand} </label>
-          </form>
+            <label htmlFor={`Color-${i}`}>{Color} </label>
+          </li>
         ))}
       </div>
       <div className="flex justify-end px-4">

@@ -20,7 +20,7 @@ const ContextApi = ({ children }) => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const res = await fetch("/public/Product.json");
+        const res = await fetch("/Product.json");
         const data = await res.json();
         // console.log(data);
         if (data.length === 0 || data.length < 1) {
@@ -50,10 +50,12 @@ const ContextApi = ({ children }) => {
   //for test and check in console.log
   // useEffect(()=>{
 
-  //   console.log(SelectedCategory);
-  //   console.log(SelectedCategory.length);
+  //   console.log(`category:${SelectedCategory}`);
+  //   console.log(`brand:${SelectedBrand}`);
+  //   console.log(`color:${SelectedColor}`);
+  //   // console.log(SelectedCategory.length);
 
-  // },[SelectedCategory])
+  // },[SelectedCategory,SelectedBrand,SelectedColor])
   // this for send or one kind of props
   const ContextInfo = {
     Products_Data,
