@@ -1,8 +1,1 @@
-{
-  "routes": [
-    { "src": "/", "dest": "/" },
-    { "src": "/sign-in", "dest": "/" },
-    { "src": "/dashboard", "dest": "/" },
-    { "src": "/any-other-route", "dest": "/" }
-  ]
-}
+{ "rewrites": [{"source": "/(.*)", "destination": "/"}]  }
