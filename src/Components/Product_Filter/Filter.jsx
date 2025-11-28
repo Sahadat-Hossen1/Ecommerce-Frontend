@@ -6,7 +6,6 @@ import Filter_by_color from "./Filter_by_color";
 
 export default function Filter({ handle_filter_togol }) {
   return (
-    // <div className="  w-1/2 md:w-full   shadow-sm -mt-3.5">
      <div
       className="w-64 max-h-[1000px] px-2 overflow-y-auto bg-amber-100 shadow-2xl"
      > 

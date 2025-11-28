@@ -1,10 +1,14 @@
 import React, { createContext, useEffect, useState } from "react";
+
 //it's for creating context
 export const Product_Context = createContext({});
 //start components
 const ContextApi = ({ children }) => {
   // products_data for store all product after fetching api/json file
   const [Products_Data, setProducts_Data] = useState([]);
+  // after filter product by category,brand,color and price product store her
+  const [After_Filter_Proudct, setAfter_Filter_Proudct] = useState([]);
+
   const [Loading, setLoading] = useState(false);
   //for select the category name for filter
   const [SelectedCategory, setSelectedCategory] = useState([]);
@@ -36,7 +40,8 @@ const ContextApi = ({ children }) => {
     };
     fetchProduct();
   }, []);
-  // for finding  unic category brand color
+  // for finding  unic category, brand, color name
+
   const Unic_Category_Name = [
     ...new Set(Products_Data.map((product) => product.category)),
   ];
@@ -47,15 +52,39 @@ const ContextApi = ({ children }) => {
   const Unic_Color_Name = [
     ...new Set(Products_Data.map((product) => product.color)),
   ];
+  //for filetering product bu selecting method
+  useEffect(() => {
+    let filtered = Products_Data;
+    try {
+      //filter by category
+      if (SelectedCategory.length > 0) {
+        filtered = Products_Data.filter((product) => {
+          return SelectedCategory.includes(product.category);
+        });
+      }
+      //filter by brand
+      if (SelectedBrand.length > 0) {
+        filtered = Products_Data.filter((product) => {
+          return SelectedBrand.includes(product.brand);
+        });
+      }
+      //filter by color
+      if (SelectedColor.length > 0) {
+        filtered = Products_Data.filter((product) => {
+          return SelectedColor.includes(product.color);
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+    setAfter_Filter_Proudct(filtered);
+  }, [Products_Data, SelectedCategory, SelectedBrand, SelectedColor]);
   //for test and check in console.log
-  // useEffect(()=>{
-
-  //   console.log(`category:${SelectedCategory}`);
-  //   console.log(`brand:${SelectedBrand}`);
-  //   console.log(`color:${SelectedColor}`);
-  //   // console.log(SelectedCategory.length);
-
-  // },[SelectedCategory,SelectedBrand,SelectedColor])
+  // useEffect(() => {
+  //   handleUnicBrand()
+  //   //  console.log(After_Filter_Proudct);
+  // }, [handleUnicBrand,SelectedCategory, SelectedBrand, SelectedColor, After_Filter_Proudct]);
   // this for send or one kind of props
   const ContextInfo = {
     Products_Data,
@@ -67,7 +96,9 @@ const ContextApi = ({ children }) => {
     setSelectedCategory,
     SelectedBrand,
     setSelectedBrand,
-    SelectedColor,setSelectedColor
+    SelectedColor,
+    setSelectedColor,
+    After_Filter_Proudct,
   };
   //  end the components
   return (
