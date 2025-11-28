@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function Card({ product, i }) {
   const navigate=useNavigate()
   const singleProducsNavigate=()=>{
-    alert()
+    // alert()
     navigate(`/product/${product.id}`)
   }
   return (

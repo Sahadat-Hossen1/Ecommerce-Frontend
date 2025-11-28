@@ -8,18 +8,11 @@ export default function SingleProduct() {
   const openedProduct = After_Filter_Proudct.find(
     (product) => product.id === parseInt(id)
   );
-  console.log(openedProduct);
+//   console.log(openedProduct);
   return (
     <div className="min-h-screen bg-gray-100 px-4 py-10 flex justify-center">
       <div className="flex flex-col bg-white shadow-2xl rounded-2xl p-6 max-w-2xl w-full">
-        {/* Product Image */}
-        {/* <div className="flex-col w-full h-80 mb-6 overflow-hidden rounded-xl">
-        <img
-          src={openedProduct.image}
-          alt=""
-          className="w-full h-full object-cover"
-        />
-      </div> */}
+       
         <div className="w-full h-[320px] sm:h-[380px] md:h-[420px] lg:h-[480px] overflow-hidden rounded-xl flex justify-center items-center bg-gray-50">
           <img
             src={openedProduct.image}
