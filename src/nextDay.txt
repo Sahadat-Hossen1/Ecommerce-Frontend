@@ -1,4 +1,8 @@
 nav and header and footer will be ready in tomorow in-sa-allah
 and all changes will be happed in ux branch because tomorow will be focus on design part not much development part
 tomorow will be add filter by color and also more button in filter and also 
-filter by price 
+filter by price .
+28.11.2025:next task is if your selected andy color then that user can't be able to selected multi color;
+or is it nessecry to make like it because user can select multi brand category so if i make  28 then is it best practice or not 
+28.11 almost done .
+29.11.2025 :next day will work on buy button and after conferm buy it will show in shoping card in nave 

@@ -38,6 +38,7 @@ export default function HomeCategory() {
               className=" px-4 py-3 hover:bg-gray-200 rounded-2xl font-semibold uppercase font-serif cursor-pointer "
               onClick={() => handleCategory(category)}
             >
+              {/* how to redirect to  show some cart option*/}
               {category}{" "}
             </li>
           </ul>

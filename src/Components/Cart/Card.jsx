@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Card({ product, i }) {
+  const navigate=useNavigate()
+  const singleProducsNavigate=()=>{
+    alert()
+    navigate(`/product/${product.id}`)
+  }
   return (
     <div
       key={i}
@@ -24,7 +30,8 @@ export default function Card({ product, i }) {
         </div>
 
         <div className="flex justify-between py-3">
-          <button className="bg-gray-200 px-5 py-2 rounded-2xl text-lg hover:bg-gray-400">
+          <button  className="bg-gray-200 px-5 py-2 rounded-2xl text-lg hover:bg-gray-400"
+          onClick={singleProducsNavigate}>
             Details
           </button>
           <button className="bg-gray-300 px-5 py-2 rounded-2xl text-lg hover:bg-gray-400">

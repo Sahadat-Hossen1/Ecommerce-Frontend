@@ -7,6 +7,7 @@ import Contact from "../../Pages/Contact/Contact";
 import SingIn from "../../Pages/SingIn/SingIn";
 import SingUp from "../../Pages/SingUp/SingUp";
 import Profile from "../../Pages/Profile/Profile";
+import SingleProduct from "../../Pages/SingleProduct/SingleProduct";
 
 export const router=createBrowserRouter(
   [
@@ -17,31 +18,35 @@ export const router=createBrowserRouter(
     children:[
       {
         path:"/",
-        element:<Home></Home>
+        element:<Home/>
       },
       {
         path:"/about",
-        element:<About></About>
+        element:<About/>
       },
       {
         path:"/allproduct",
-        element:<AllProduct></AllProduct>
-      },
+        element:<AllProduct/>
+      },{
+        path:"/product/:id",
+        element:<SingleProduct/>
+      }
+      ,
       {
         path:"/contact",
-        element:<Contact></Contact>
+        element:<Contact/>
       },
       {
         path:"/singin",
-        element:<SingIn></SingIn>
+        element:<SingIn/>
       },
       {
         path:"/singup",
-        element:<SingUp></SingUp>
+        element:<SingUp/>
       },
       {
         path:"/profile",
-        element:<Profile></Profile>
+        element:<Profile/>
       },{
         path:"*",
         element:<div className="flex justify-center items-center "><h1>404 Not Found</h1></div>

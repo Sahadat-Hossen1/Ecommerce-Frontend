@@ -52,7 +52,7 @@ const ContextApi = ({ children }) => {
   const Unic_Color_Name = [
     ...new Set(Products_Data.map((product) => product.color)),
   ];
-  //for filetering product bu selecting method
+  //for filetering product by selecting method
   useEffect(() => {
     let filtered = Products_Data;
     try {
