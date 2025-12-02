@@ -7,7 +7,7 @@ const ContextApi = ({ children }) => {
   // products_data for store all product after fetching api/json file
   const [Products_Data, setProducts_Data] = useState([]);
   // after filter product by category,brand,color and price product store her
-  const [After_Filter_Proudct, setAfter_Filter_Proudct] = useState([]);
+  const [After_Filter_Product, setAfter_Filter_Product] = useState([]);
 
   const [Loading, setLoading] = useState(false);
   //for select the category name for filter
@@ -78,13 +78,13 @@ const ContextApi = ({ children }) => {
       console.log(error);
     }
 
-    setAfter_Filter_Proudct(filtered);
+    setAfter_Filter_Product(filtered);
   }, [Products_Data, SelectedCategory, SelectedBrand, SelectedColor]);
   //for test and check in console.log
   // useEffect(() => {
   //   handleUnicBrand()
-  //   //  console.log(After_Filter_Proudct);
-  // }, [handleUnicBrand,SelectedCategory, SelectedBrand, SelectedColor, After_Filter_Proudct]);
+  //   //  console.log(After_Filter_Product);
+  // }, [handleUnicBrand,SelectedCategory, SelectedBrand, SelectedColor, After_Filter_Product]);
   // this for send or one kind of props
   const ContextInfo = {
     Products_Data,
@@ -98,7 +98,7 @@ const ContextApi = ({ children }) => {
     setSelectedBrand,
     SelectedColor,
     setSelectedColor,
-    After_Filter_Proudct,
+    After_Filter_Product,
   };
   //  end the components
   return (

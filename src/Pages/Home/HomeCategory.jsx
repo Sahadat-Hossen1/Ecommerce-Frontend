@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import Card from "../../Components/Cart/Card";
 // import images from "public/Headphone.jpg"
-import { Product_Context } from './../../Components/ContextApi/ContextApi';
+import { Product_Context } from "./../../Components/ContextApi/ContextApi";
 
 export default function HomeCategory() {
   const { Unic_Category_Name, Products_Data } = useContext(Product_Context);
@@ -45,7 +45,7 @@ export default function HomeCategory() {
         ))}
       </div>
       {/* for show some cart by category filter */}
-      <div>
+      <div className="flex flex-col items-center justify-center">
         {/*for filtering by audio  */}
         <div>
           <h2 className="pl-2 upercase text-2xl xl:3xl font-serif font-semibold">
@@ -56,11 +56,11 @@ export default function HomeCategory() {
               <Card product={product} i={i} />
             ))}
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
+          {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
             {Mobile.map((product, i) => (
               <Card product={product} i={i}></Card>
             ))}
-          </div>
+          </div> */}
         </div>
         {/*for filtering by  gaming   */}{" "}
         <div>
@@ -87,7 +87,7 @@ export default function HomeCategory() {
         {/*for filtering by tv  */}{" "}
         <div>
           <h5 className="pl-2 upercase text-2xl xl:3xl font-serif font-semibold">
-            {" "}
+            
             tv
           </h5>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">

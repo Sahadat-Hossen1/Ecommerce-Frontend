@@ -5,4 +5,4 @@ filter by price .
 28.11.2025:next task is if your selected andy color then that user can't be able to selected multi color;
 or is it nessecry to make like it because user can select multi brand category so if i make  28 then is it best practice or not 
 28.11 almost done .
-29.11.2025 :next day will work on buy button and after conferm buy it will show in shoping card in nave 
+29.11.2025 :next day will work on buy button and after conferm buy it will show a pop for quantity and price tax taking address from user and store in and array then show in nav shoping card
