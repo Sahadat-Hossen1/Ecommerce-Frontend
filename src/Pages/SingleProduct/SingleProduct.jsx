@@ -1,17 +1,59 @@
 import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
+
 import { Product_Context } from "../../Components/ContextApi/ContextApi";
+import { useNavigate } from "react-router-dom";
 import QuantityCunter from "./QuantityCunter";
+import Review from "./Review";
 
 export default function SingleProduct() {
   const { id } = useParams();
-      const[Counter,setCounter]=useState(1)
+  const navigate = useNavigate();
 
-  const { After_Filter_Product } = useContext(Product_Context);
+  const {
+    After_Filter_Product,
+    Counter,
+    setCounter,
+    All_addToCart_p,
+    setAll_addToCart_p,
+  } = useContext(Product_Context);
   let openedProduct = After_Filter_Product.find(
     (product) => product.id === parseInt(id)
   );
- const totalPrice=openedProduct?.price*Counter;
+  // console.log(openedProduct);
+
+  const totalPrice = openedProduct?.price * Counter;
+  const AddToCartFunc = (id) => {
+    const newProduct = {
+      id,
+      price: totalPrice,
+      quantity: Counter,
+      img: openedProduct.image,
+    };
+    try{
+      // debugger
+    const exites = All_addToCart_p.find((item) => item.id === id);
+    // debugger
+    // console.log(exites)
+    if (exites) {
+      
+       const updateQuantity = All_addToCart_p.map((item) =>
+    item.id === id ? { ...item, quantity: Counter,price:totalPrice } : item
+  );
+    return  setAll_addToCart_p(updateQuantity);
+    ;
+    } else {
+      setAll_addToCart_p([...All_addToCart_p, newProduct]);
+    }
+    }catch(error){
+      console.log(error);
+      
+    }finally{
+
+      navigate(-1);
+    }
+
+  };
   if (!openedProduct) {
     return <h1>Product not found </h1>;
   }
@@ -47,28 +89,25 @@ export default function SingleProduct() {
 
             {/* Buy Button */}
             <div className="mt-6 flex-col space-y-4">
-             {/* quantity Counter & total price */}
-             <div className="flex flex-row items-center justify-center gap-2">
-
-             <QuantityCunter Counter={Counter} setCounter={setCounter} />
-             <h6 className="text-xl md:text-3xl font-semibold">Total Price:{totalPrice} </h6>
-             </div>
+              {/* quantity Counter & total price */}
+              <div className="flex flex-row items-center justify-center gap-2">
+                <QuantityCunter Counter={Counter} setCounter={setCounter} />
+                <h6 className="text-xl md:text-2xl lg:text-3xl font-semibold">
+                  Total Price:{totalPrice}{" "}
+                </h6>
+              </div>
               <button
-                className="w-full py-3 bg-green-600 text-white rounded-xl text-lg font-semibold
-                     hover:bg-green-700 transition-all duration-200"
+                onClick={() => AddToCartFunc(id)}
+                className="w-full py-3 bg-green-600 text-white rounded-xl text-lg font-semibold uppercase
+                     hover:bg-green-800 transition-all duration-200"
               >
-                Buy Now
+                Add To Cardt
               </button>
             </div>
           </div>
         </div>
         {/* description and reviews */}
-        <div className="border-t flex items-center justify-center">
-          <ul className="flex space-x-4 py-1">
-            <li className="hover:border-b ">Description</li>
-            <li className="hover:border-b"> Reviews</li>
-          </ul>
-        </div>
+        <Review openedProduct={openedProduct} />
       </div>
     </div>
   );

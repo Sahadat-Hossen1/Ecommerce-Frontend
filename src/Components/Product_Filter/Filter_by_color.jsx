@@ -4,12 +4,13 @@ import "./style.css";
 export default function Filter_by_Color() {
   const { Unic_Color_Name, SelectedColor, setSelectedColor } =
     useContext(Product_Context);
-  const [toggleMore, setToggleMore] = useState(false);
-  const slice_Color_name = toggleMore
+    
+    const [toggleMore, setToggleMore] = useState(true);
+    const slice_Color_name = toggleMore
     ? Unic_Color_Name
     : Unic_Color_Name.slice(1, 6);
-  // console.log(slice_Color_name.length);
-
+    
+    console.log(slice_Color_name.length);
   const handleCheckedSelected = (Color) => {
     if (SelectedColor.includes(Color)) {
       setSelectedColor(SelectedColor.filter((c) => c !== Color));

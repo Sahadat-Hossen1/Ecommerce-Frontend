@@ -5,14 +5,15 @@ import Filter_by_Brand from "./Filter_by_Brand";
 import Filter_by_color from "./Filter_by_color";
 
 export default function Filter({ handle_filter_togol }) {
+  
   return (
      <div
-      className="w-64 max-h-[1000px] px-2 overflow-y-auto bg-amber-100 shadow-2xl"
+      className="w-64 max-h-[1000px]  px-2 overflow-y-auto sticky top-0 left-0 bg-amber-100 shadow-2xl"
      > 
       <div className="  flex justify-end ">
         <MdClose className="w-6 h-6" onClick={handle_filter_togol} />
       </div>
-      <div className="h-full  ">
+      <div className="">
         <Filter_by_category />
         <Filter_by_Brand/>
         <Filter_by_color/>

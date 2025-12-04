@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   FiAlignJustify,
@@ -10,8 +10,13 @@ import {
 import { MdClose } from "react-icons/md";
 import SearchBar from "./SearchBar";
 import ShopingCart from "../../Cart/ShopingCart";
+import { Product_Context } from "../../ContextApi/ContextApi";
 
 export default function Nav() {
+  const {All_addToCart_p}=useContext(Product_Context)
+  // console.log(All_addToCart_p);
+  
+  const items=All_addToCart_p.length;
   const [isOpen, setIsOpen] = useState(false);
   // for toggle menu
   const toggleMenu = () => {
@@ -85,12 +90,12 @@ export default function Nav() {
               <FiUser className="w-6 h-6" />
             </NavLink>
             </li>
-            <li onClick={toggleCart} className="relative">
-              <FiShoppingCart className="w-6 h-6" />
+            <li onClick={toggleCart} className="relative  ">
+              <FiShoppingCart className="w-6 h-6 inline" /><span className="bg-red-500 px-1.5 rounded-full text-[12px] absolute -top-2 left-3 ">{items} </span>
             </li>
             {/* for search icon */}
-            <li onClick={toggleSearch} className=" relative">
-              <FiSearch className="w-6 h-6" />
+            <li onClick={toggleSearch} className=" relative ">
+              <FiSearch className="w-6 h-6" /> 
             </li>
           </ul>
         </div>

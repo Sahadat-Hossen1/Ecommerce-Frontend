@@ -53,7 +53,7 @@ export default function HomeCategory() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2 px-2 py-4 mx-auto  ">
             {Audio.map((product, i) => (
-              <Card product={product} i={i} />
+              <Card product={product} key={i} i={i} />
             ))}
           </div>
           {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
@@ -69,7 +69,7 @@ export default function HomeCategory() {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
             {Gaming.map((product, i) => (
-              <Card product={product} i={i} />
+              <Card product={product} key={i} i={i} />
             ))}
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function HomeCategory() {
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
             {Mobile.map((product, i) => (
-              <Card product={product} i={i} />
+              <Card product={product} key={i} i={i} />
             ))}
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function HomeCategory() {
           </h5>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
             {Tv.map((product, i) => (
-              <Card product={product} i={i} />
+              <Card product={product} key={i} i={i} />
             ))}
           </div>
         </div>

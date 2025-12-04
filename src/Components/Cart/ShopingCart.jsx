@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MdClose } from "react-icons/md";
+import { Product_Context } from "../ContextApi/ContextApi";
 export default function ShopingCart({isCart,toggleCart}) {
   const cartItems = [
     {
@@ -35,6 +36,9 @@ export default function ShopingCart({isCart,toggleCart}) {
       photo: "../../assets/Main-Logo.jpg",
     },
   ];
+  const {All_addToCart_p}=useContext(Product_Context);
+  console.log(All_addToCart_p);
+  
   return (
     <div className="  w-full h-screen bg-amber-100 shadow-sm">
      <div className="  flex justify-end ">

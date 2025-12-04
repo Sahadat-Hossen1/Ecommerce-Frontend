@@ -18,6 +18,10 @@ const ContextApi = ({ children }) => {
 
   //for select the color name for filter
   const [SelectedColor, setSelectedColor] = useState([]);
+  //for add to cart when user add any product
+  const [Counter, setCounter] = useState(0);
+
+   const[All_addToCart_p,setAll_addToCart_p]=useState([])
 
   //for fetching api
   useEffect(() => {
@@ -83,7 +87,7 @@ const ContextApi = ({ children }) => {
   //for test and check in console.log
   // useEffect(() => {
   //   handleUnicBrand()
-  //   //  console.log(After_Filter_Product);
+  //  console.log(After_Filter_Product);
   // }, [handleUnicBrand,SelectedCategory, SelectedBrand, SelectedColor, After_Filter_Product]);
   // this for send or one kind of props
   const ContextInfo = {
@@ -99,6 +103,9 @@ const ContextApi = ({ children }) => {
     SelectedColor,
     setSelectedColor,
     After_Filter_Product,
+    Counter,
+    setCounter,
+    All_addToCart_p,setAll_addToCart_p,
   };
   //  end the components
   return (

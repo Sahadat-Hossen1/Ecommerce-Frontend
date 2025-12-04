@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { Product_Context } from "../ContextApi/ContextApi";
 
 export default function Card({ product, i }) {
+  const {Counter,setCounter}=useContext(Product_Context)
   const navigate=useNavigate()
   const singleProducsNavigate=()=>{
     // alert()
     navigate(`/product/${product.id}`)
+    setCounter(1)
   }
   return (
     <div

@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../Components/Share/Header/Header.jsx";
 import Footer from "../../Components/Share/Footer/Footer.jsx";
 import {Product_Context } from "../../Components/ContextApi/ContextApi.jsx";
 export default function Main() {
   const { Loading } = useContext(Product_Context);
-  // let loadingTag;
-  // if (Loading) {
-  //   loadingTag = <h1>Loading.......</h1>;
-  // }
+ /*useEffect(()=>{
+  window.scrollTo(0,0)
+ },[])*/
   return (
     <div className="bg-[f2f4f8] font-serif ">
       <Header />
