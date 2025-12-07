@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { Product_Context } from "../ContextApi/ContextApi";
 
 export default function Card({ product, i }) {
-  const {Counter,setCounter}=useContext(Product_Context)
-  const navigate=useNavigate()
-  const singleProducsNavigate=()=>{
+  const { Counter, setCounter } = useContext(Product_Context);
+  const navigate = useNavigate();
+  const singleProducsNavigate = () => {
     // alert()
-    navigate(`/product/${product.id}`)
-    setCounter(1)
-  }
+    navigate(`/product/${product.id}`);
+    setCounter(1);
+  };
   return (
     <div
       key={i}
       onClick={singleProducsNavigate}
-      className="bg-white shadow-2xl flex flex-col rounded-2xl w-full md:w-80" 
+      className="bg-white shadow-2xl flex flex-col rounded-2xl w-full md:w-80"
     >
       <div className="w-full h-52 flex-1">
         <img
@@ -27,7 +27,7 @@ export default function Card({ product, i }) {
       <div className="mx-2">
         <div>
           <h1 className="text-2xl md:text-3xl">{product.model}</h1>
-          <h2 className="text-xl">Price: {product.price}</h2>
+          <h2 className="text-xl">Price: {product.price} $</h2>
           <h3 className="text-lg">
             Brand_Name: <span className="uppercase">{product.brand}</span>
           </h3>
@@ -38,9 +38,10 @@ export default function Card({ product, i }) {
           onClick={singleProducsNavigate}>
             Details
           </button> */}
-          <button className="bg-gray-300 px-5 py-2 rounded-2xl text-lg hover:bg-gray-400"
-          onClick={singleProducsNavigate}
-         >
+          <button
+            className="bg-gray-300 px-5 py-2 rounded-2xl text-lg hover:bg-gray-400"
+            onClick={singleProducsNavigate}
+          >
             Buy Now
           </button>
         </div>

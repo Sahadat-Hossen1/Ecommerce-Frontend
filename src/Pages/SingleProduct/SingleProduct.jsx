@@ -81,7 +81,7 @@ export default function SingleProduct() {
             </p>
 
             <p className="text-2xl text-green-600 font-bold mt-3">
-              ৳ {openedProduct.price}
+              $ {openedProduct.price}
             </p>
 
             <p className="text-xl font-semibold mt-4">{openedProduct.title}</p>

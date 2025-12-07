@@ -6,8 +6,9 @@ export const Product_Context = createContext({});
 const ContextApi = ({ children }) => {
   // products_data for store all product after fetching api/json file
   const [Products_Data, setProducts_Data] = useState([]);
-  // after filter product by category,brand,color and price product store her
+  // after filter product by category,brand,color,price and by search product store here
   const [After_Filter_Product, setAfter_Filter_Product] = useState([]);
+  // console.log(After_Filter_Product.filter(product=>product.title));
 
   const [Loading, setLoading] = useState(false);
   //for select the category name for filter
@@ -18,10 +19,11 @@ const ContextApi = ({ children }) => {
 
   //for select the color name for filter
   const [SelectedColor, setSelectedColor] = useState([]);
+
   //for add to cart when user add any product
   const [Counter, setCounter] = useState(0);
 
-   const[All_addToCart_p,setAll_addToCart_p]=useState([])
+  const [All_addToCart_p, setAll_addToCart_p] = useState([]);
 
   //for fetching api
   useEffect(() => {
@@ -103,9 +105,11 @@ const ContextApi = ({ children }) => {
     SelectedColor,
     setSelectedColor,
     After_Filter_Product,
+    setAfter_Filter_Product,
     Counter,
     setCounter,
-    All_addToCart_p,setAll_addToCart_p,
+    All_addToCart_p,
+    setAll_addToCart_p,
   };
   //  end the components
   return (

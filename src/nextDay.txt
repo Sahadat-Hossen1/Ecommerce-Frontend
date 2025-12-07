@@ -8,4 +8,7 @@ or is it nessecry to make like it because user can select multi brand category s
 29.11.2025 :next day will work on buy button and after conferm buy it will show a pop for quantity and price tax taking address from user and store in and array then show in nav shoping card
 
 5.12.2025:1~if user click x then it will remove in ShopingCart
-          2~filter by search and price amount 
+          2~filter by search and price amount .
+7.12.2025:search filter.
+          filtered by price .
+          then set auth firebase auth .

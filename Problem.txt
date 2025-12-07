@@ -1,0 +1,2 @@
+prb-1:in singleproduct page after reload page product quantity set 0 automaticly.
+prb-2
