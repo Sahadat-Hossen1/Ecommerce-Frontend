@@ -21,39 +21,39 @@ export default function SingleProduct() {
     (product) => product.id === parseInt(id)
   );
   // console.log(openedProduct);
-
-  const totalPrice = openedProduct?.price * Counter;
+  let totalPrice = openedProduct?.price * Counter;
   const AddToCartFunc = (id) => {
     const newProduct = {
       id,
-      price: totalPrice,
-      quantity: Counter,
-      img: openedProduct.image,
-    };
-    try{
-      // debugger
-    const exites = All_addToCart_p.find((item) => item.id === id);
-    // debugger
-    // console.log(exites)
-    if (exites) {
-      
-       const updateQuantity = All_addToCart_p.map((item) =>
-    item.id === id ? { ...item, quantity: Counter,price:totalPrice } : item
-  );
-    return  setAll_addToCart_p(updateQuantity);
-    ;
-    } else {
-      setAll_addToCart_p([...All_addToCart_p, newProduct]);
-    }
-    }catch(error){
-      console.log(error);
-      
-    }finally{
 
+      model: openedProduct.model,
+      price: openedProduct.price,
+      image: openedProduct.image,
+      quantity: Counter,
+      totalPrice: totalPrice,
+    };
+
+    try {
+      // debugger
+      const exites = All_addToCart_p.find((item) => item.id === id);
+      // debugger
+      // console.log(exites)
+      if (exites) {
+        const updateQuantity = All_addToCart_p.map((item) =>
+          item.id === id ? { ...item, quantity: Counter } : item
+        );
+        return setAll_addToCart_p(updateQuantity);
+      } else {
+        setAll_addToCart_p([...All_addToCart_p, newProduct]);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
       navigate(-1);
     }
-
   };
+  // console.log(All_addToCart_p);
+
   if (!openedProduct) {
     return <h1>Product not found </h1>;
   }
@@ -101,7 +101,7 @@ export default function SingleProduct() {
                 className="w-full py-3 bg-green-600 text-white rounded-xl text-lg font-semibold uppercase
                      hover:bg-green-800 transition-all duration-200"
               >
-                Add To Cardt
+                Add To Cart
               </button>
             </div>
           </div>

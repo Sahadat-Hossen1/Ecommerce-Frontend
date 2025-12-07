@@ -9,14 +9,14 @@ import {
 
 import { MdClose } from "react-icons/md";
 import SearchBar from "./SearchBar";
-import ShopingCart from "../../Cart/ShopingCart";
 import { Product_Context } from "../../ContextApi/ContextApi";
+import ShopingCartSideBar from "../../ShopingSideBar/ShopingCartSideBar";
 
 export default function Nav() {
-  const {All_addToCart_p}=useContext(Product_Context)
+  //for show how many items added or items length
+  const { All_addToCart_p } = useContext(Product_Context);
   // console.log(All_addToCart_p);
-  
-  const items=All_addToCart_p.length;
+  const items = All_addToCart_p.length;
   const [isOpen, setIsOpen] = useState(false);
   // for toggle menu
   const toggleMenu = () => {
@@ -28,11 +28,11 @@ export default function Nav() {
     // alert()
     setIsOpnSearch(!isOpenSearch);
   };
-  // for shoping cart 
-  const [isCart,setIsCart]=useState(false)
-  const toggleCart=()=>{
-    setIsCart(!isCart)
-  }
+  // for shoping cart
+  const [isCart, setIsCart] = useState(false);
+  const toggleCart = () => {
+    setIsCart(!isCart);
+  };
   // this for ul items
   const ulItems = (
     <>
@@ -85,17 +85,20 @@ export default function Nav() {
 
         <div className="flex justify-end items-center space-x-4 pr-2">
           <ul className="flex space-x-2">
-            <li><NavLink to="/profile">
-            
-              <FiUser className="w-6 h-6" />
-            </NavLink>
+            <li>
+              <NavLink to="/profile">
+                <FiUser className="w-6 h-6" />
+              </NavLink>
             </li>
             <li onClick={toggleCart} className="relative  ">
-              <FiShoppingCart className="w-6 h-6 inline" /><span className="bg-red-500 px-1.5 rounded-full text-[12px] absolute -top-2 left-3 ">{items} </span>
+              <FiShoppingCart className="w-6 h-6 inline" />
+              <span className="bg-red-500 px-1.5 rounded-full text-[12px] absolute -top-2 left-3 ">
+                {items}{" "}
+              </span>
             </li>
             {/* for search icon */}
             <li onClick={toggleSearch} className=" relative ">
-              <FiSearch className="w-6 h-6" /> 
+              <FiSearch className="w-6 h-6" />
             </li>
           </ul>
         </div>
@@ -108,16 +111,13 @@ export default function Nav() {
             />
           </div>
         )}
-      {/* for show shoping cart */}
-      {isCart && (
+        {/* for show shoping cart */}
+        {isCart && (
           <div className=" absolute top-0 right-1 w-1/2 md:w-1/4 100 transition-all duration-1000">
-            <ShopingCart
-              isCart={isCart}
-              toggleCart={toggleCart}
-            />
+            <ShopingCartSideBar isCart={isCart} toggleCart={toggleCart} />
           </div>
         )}
-        </nav>
+      </nav>
     </div>
   );
 }

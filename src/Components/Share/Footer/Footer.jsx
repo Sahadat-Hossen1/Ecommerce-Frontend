@@ -17,7 +17,7 @@ export default function Footer() {
           offers
         </p>
         <label>Sign up and get 5% off your first order.</label>
-        <form className="border rounded-md w-2/3 flex justify-between  ">
+        <form className="border border-gray-300 rounded-md w-2/3 flex justify-between  ">
           <input
             type="email"
             placeholder="Enter your email"
@@ -25,7 +25,7 @@ export default function Footer() {
           />
           <button
             type="submit"
-            className="border w-2/5 rounded-md border-none bg-gray-200  font-semibold text-xl py-1 hover:bg-gray-300"
+            className="border w-2/5 rounded-md border-none bg-gray-100  font-semibold text-xl py-1 hover:bg-gray-50"
           >
             Subcribe{" "}
           </button>
