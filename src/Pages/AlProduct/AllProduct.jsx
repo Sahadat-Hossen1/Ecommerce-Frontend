@@ -5,7 +5,7 @@ import { MdFilterList } from "react-icons/md";
 import "./Style.css";
 
 export default function AllProduct() {
-  const [isOpen, setisOpen] = useState(true);
+  const [isOpen, setisOpen] = useState(false);
   const handle_filter_togol = () => {
     setisOpen(!isOpen);
     
