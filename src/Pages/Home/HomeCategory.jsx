@@ -75,7 +75,7 @@ export default function HomeCategory() {
         </div>
         {/*for filtering by mobile  */}{" "}
         <div>
-          <h4 className="pl-2 upercase text-2xl xl:3xl font-serif font-semibold">
+          <h4 className="pl-2 uppercase text-2xl xl:3xl font-serif font-semibold">
             mobile
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-2 py-4">
@@ -86,7 +86,7 @@ export default function HomeCategory() {
         </div>
         {/*for filtering by tv  */}{" "}
         <div>
-          <h5 className="pl-2 upercase text-2xl xl:3xl font-serif font-semibold">
+          <h5 className="pl-2 uppercase text-2xl xl:3xl font-serif font-semibold">
             
             tv
           </h5>

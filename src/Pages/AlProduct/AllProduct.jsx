@@ -5,10 +5,10 @@ import { MdFilterList } from "react-icons/md";
 import "./Style.css";
 
 export default function AllProduct() {
-  const [isOpen, setisOpen] = useState(false);
+  const [isOpen, setisOpen] = useState(true);
   const handle_filter_togol = () => {
     setisOpen(!isOpen);
-    // alert()
+    
   };
   return (
     <div className="flex flex-col ">
@@ -26,7 +26,7 @@ export default function AllProduct() {
         
         {isOpen && (
           <div
-            className={`fixed top-0 left-0 min-h-screen w-64 bg-white shadow-2xl 
+            className={` fixed top-0 left-0 min-h-[1200px] w-82  bg-amber-100 shadow-2xl 
                 transform  transition-all duration-900 ease-in-out
               `}
           >

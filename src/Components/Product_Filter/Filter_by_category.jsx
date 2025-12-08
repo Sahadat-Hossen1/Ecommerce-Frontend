@@ -15,7 +15,7 @@ export default function Filter_by_category() {
 
   return (
     <div>
-      <h1 className="py-1 text-xl font-semibold">Category Name:</h1>
+      <h1 className="py-1 text-2xl font-semibold">Category Name:</h1>
       <div className="flex flex-col">
         {Unic_Category_Name.map((category, i) => (
           <li key={i} className="flex space-x-1 ">
@@ -25,7 +25,7 @@ export default function Filter_by_category() {
               onChange={() => handleCheckedSelected(category)}
               id={`item-${i}`}
             />
-            <label htmlFor={`category-${i}`}>{category} </label>
+            <label className="text-xl" htmlFor={`category-${i}`}>{category} </label>
           </li>
         ))}
       </div>

@@ -19,9 +19,11 @@ const ContextApi = ({ children }) => {
 
   //for select the color name for filter
   const [SelectedColor, setSelectedColor] = useState([]);
-
+  //for select the price
+  const [MinPrice, setMinPrice] = useState(0);
+  const [MaxPrice, setMaxPrice] = useState(1000);
   //for add to cart when user add any product
-  const [Counter, setCounter] = useState(0);
+  const [Counter, setCounter] = useState(1000);
 
   const [All_addToCart_p, setAll_addToCart_p] = useState([]);
 
@@ -60,39 +62,46 @@ const ContextApi = ({ children }) => {
   ];
   //for filetering product by selecting method
   useEffect(() => {
-    let filtered = Products_Data;
-    try {
+    let filtered = [...Products_Data];
+  
       //filter by category
       if (SelectedCategory.length > 0) {
-        filtered = Products_Data.filter((product) => {
+        filtered = filtered.filter((product) => {
           return SelectedCategory.includes(product.category);
         });
       }
       //filter by brand
       if (SelectedBrand.length > 0) {
-        filtered = Products_Data.filter((product) => {
+        filtered = filtered.filter((product) => {
           return SelectedBrand.includes(product.brand);
         });
       }
       //filter by color
       if (SelectedColor.length > 0) {
-        filtered = Products_Data.filter((product) => {
+        filtered = filtered.filter((product) => {
           return SelectedColor.includes(product.color);
         });
       }
-    } catch (error) {
-      console.log(error);
-    }
+
+      
+   if (MinPrice != null && MaxPrice != null) {
+    filtered = filtered.filter(product =>
+      product.price >= Number(MinPrice) &&
+      product.price <= Number(MaxPrice)
+    );
+  }
 
     setAfter_Filter_Product(filtered);
-  }, [Products_Data, SelectedCategory, SelectedBrand, SelectedColor]);
-  //for test and check in console.log
-  // useEffect(() => {
-  //   handleUnicBrand()
-  //  console.log(After_Filter_Product);
-  // }, [handleUnicBrand,SelectedCategory, SelectedBrand, SelectedColor, After_Filter_Product]);
-  // this for send or one kind of props
-  const ContextInfo = {
+  }, [
+    Products_Data,
+    SelectedCategory,
+    SelectedBrand,
+    SelectedColor,
+    MinPrice,
+    MaxPrice,
+  ]);
+
+const ContextInfo = {
     Products_Data,
     Loading,
     Unic_Category_Name,
@@ -104,6 +113,10 @@ const ContextApi = ({ children }) => {
     setSelectedBrand,
     SelectedColor,
     setSelectedColor,
+    MinPrice,
+    setMinPrice,
+    MaxPrice,
+    setMaxPrice,
     After_Filter_Product,
     setAfter_Filter_Product,
     Counter,

@@ -20,7 +20,7 @@ export default function Filter_by_Brand() {
 
   return (
     <div>
-      <h1 className="py-1 text-xl font-semibold">Brand Name:</h1>
+      <h1 className="py-1 text-2xl font-semibold">Brand Name:</h1>
       <div className="flex flex-col">
         {slice_brand_name.map((Brand, i) => (
           <form key={i} className="flex space-x-1 ">
@@ -30,7 +30,7 @@ export default function Filter_by_Brand() {
               onChange={() => handleCheckedSelected(Brand)}
               id={`item-${i}`}
             />
-            <label htmlFor={`Brand-${i}`} >{Brand} </label>
+            <label className="text-xl" htmlFor={`Brand-${i}`} >{Brand} </label>
           </form>
         ))}
       </div>
