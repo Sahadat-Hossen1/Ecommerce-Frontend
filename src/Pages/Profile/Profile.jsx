@@ -1,9 +1,12 @@
 import React, { useContext } from 'react'
 import { Auth_Data_Context } from '../../Components/ContextApi/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function Profile() {
-  const {name}=useContext(Auth_Data_Context)
+  const {user}=useContext(Auth_Data_Context)
+ 
+  
   return (
-    <div>Profile {name}</div>
+    <div>Profile {user}</div>
   )
 }

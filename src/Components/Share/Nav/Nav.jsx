@@ -11,8 +11,12 @@ import { MdClose } from "react-icons/md";
 import SearchBar from "./SearchBar";
 import { Product_Context } from "../../ContextApi/ContextApi";
 import ShopingCartSideBar from "../../ShopingSideBar/ShopingCartSideBar";
+import { use_Auth_Data_Context } from "../../ContextApi/AuthContext";
 
 export default function Nav() {
+  //user info
+  const { User } = use_Auth_Data_Context();
+
   //for show how many items added or items length
   const { All_addToCart_p } = useContext(Product_Context);
   // console.log(All_addToCart_p);
@@ -85,10 +89,9 @@ export default function Nav() {
 
         <div className="flex justify-end items-center space-x-4 pr-2">
           <ul className="flex space-x-2">
-            <li>
-              <NavLink to="/profile">
-                <FiUser className="w-6 h-6" />
-              </NavLink>
+            {/* for search icon */}
+            <li onClick={toggleSearch} className=" relative ">
+              <FiSearch className="w-6 h-6" />
             </li>
             <li onClick={toggleCart} className="relative  ">
               <FiShoppingCart className="w-6 h-6 inline" />
@@ -96,9 +99,10 @@ export default function Nav() {
                 {items}{" "}
               </span>
             </li>
-            {/* for search icon */}
-            <li onClick={toggleSearch} className=" relative ">
-              <FiSearch className="w-6 h-6" />
+            <li>
+              <NavLink  to={User? "/profile":"/singup"}>
+                <FiUser className="w-6 h-6" />
+              </NavLink>
             </li>
           </ul>
         </div>
