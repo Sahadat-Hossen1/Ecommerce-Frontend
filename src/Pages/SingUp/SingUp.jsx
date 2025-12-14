@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import app from "../../Components/FirebaseConfig/FirebaseConfig";
-import { use_Auth_Data_Context } from "../../Components/ContextApi/AuthContext";
+import React, { useState } from "react";
+import { use_Auth_Data_Context } from './../../Components/ContextApi/AuthContext';
+import { useNavigate } from "react-router-dom";
+
 
 export default function SignUp() {
   //class name
   const inputClassName =
     "w-full  py-2.5 md:py-3 pl-2  text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200";
   const labelClassName = "block text-sm font-medium text-gray-700";
-//auth-data-context
-const {auth}=use_Auth_Data_Context()
-  const [FormData, setFormData] = useState({});
-
+  //auth-data-context
+  const { handleSingUpUser } = use_Auth_Data_Context();
+  //
+  const [error, setError] = useState("");
+  //
+  const navigate=useNavigate();
+  //
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -19,29 +22,21 @@ const {auth}=use_Auth_Data_Context()
     const email = form.email.value;
     const age = form.age.value;
     const password = form.password.value;
-    const formObj = {
-      name: name,
-      email: email,
-      age: age,
-      password: password,
-    };
-    setFormData(formObj);
+    
+//
+    handleSingUpUser(name, email, password)
+      .then(() => {
+        alert("user successfully singup");
+        form.reset();
+        setError('')
+        navigate('/')
+      
+      })
+      .catch((error) => {
+        setError(error.message);
 
-    //for authentication
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        if(user){
-            return updateProfile(auth.currentUser,{
-              displayName:name
-            })
-        }
-      }
-    ).then(()=>{
-      alert("user successfully singup")
-      console.log(auth.currentUser)
-    }).catch((error) => console.log(error));
-      form.reset()
+        // console.log(error);
+      });
   };
 
   return (
@@ -135,6 +130,8 @@ const {auth}=use_Auth_Data_Context()
             >
               Create Account
             </button>
+            <p className="text-red-700 text-center">{error} </p>
+            {/* {error && } */}
           </form>
 
           {/* Divider */}
