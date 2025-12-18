@@ -3,11 +3,11 @@ import { use_Auth_Data_Context } from "../../Components/ContextApi/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
-  const { User,handleSingOut } = use_Auth_Data_Context();
+  const { User,handleSignOut } = use_Auth_Data_Context();
     const navigate = useNavigate();
 
   const SignOut=()=>{
-handleSingOut()
+handleSignOut().catch(error=>console.log(error))
 navigate('/')
   }
   return (

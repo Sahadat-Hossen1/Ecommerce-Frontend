@@ -4,10 +4,12 @@ import Home from './../../Pages/Home/Home';
 import About from "../../Pages/About/About";
 import AllProduct from "../../Pages/AlProduct/AllProduct";
 import Contact from "../../Pages/Contact/Contact";
-import SingIn from "../../Pages/SingIn/SingIn";
-import SingUp from "../../Pages/SingUp/SingUp";
 import Profile from "../../Pages/Profile/Profile";
 import SingleProduct from "../../Pages/SingleProduct/SingleProduct";
+import SignIn from "../../Pages/SignIn&SignUP/SignIn/SignIn";
+import SignUp from "../../Pages/SignIn&SignUP/SignUp/SignUp";
+
+
 
 export const router=createBrowserRouter(
   [
@@ -38,11 +40,11 @@ export const router=createBrowserRouter(
       },
       {
         path:"/singin",
-        element:<SingIn/>
+        element:<SignIn/>
       },
       {
         path:"/singup",
-        element:<SingUp/>
+        element:<SignUp/>
       },
       {
         path:"/profile",

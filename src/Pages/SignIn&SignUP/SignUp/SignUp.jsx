@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { use_Auth_Data_Context } from './../../Components/ContextApi/AuthContext';
-import { useNavigate } from "react-router-dom";
+import { use_Auth_Data_Context } from '../../../Components/ContextApi/AuthContext';
+import { NavLink, useNavigate } from "react-router-dom";
+import SignIn_With_Google from "../SignIn_With_Google/SignIn_With_Google";
 
 
 export default function SignUp() {
@@ -9,7 +10,7 @@ export default function SignUp() {
     "w-full  py-2.5 md:py-3 pl-2  text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200";
   const labelClassName = "block text-sm font-medium text-gray-700";
   //auth-data-context
-  const { handleSingUpUser } = use_Auth_Data_Context();
+  const { handleSignUpUser } = use_Auth_Data_Context();
   //
   const [error, setError] = useState("");
   //
@@ -24,9 +25,9 @@ export default function SignUp() {
     const password = form.password.value;
     
 //
-    handleSingUpUser(name, email, password)
+    handleSignUpUser(name, email, password)
       .then(() => {
-        alert("user successfully singup");
+        alert("user successfully signUp");
         form.reset();
         setError('')
         navigate('/')
@@ -133,7 +134,6 @@ export default function SignUp() {
             <p className="text-red-700 text-center">{error} </p>
             {/* {error && } */}
           </form>
-
           {/* Divider */}
           <div className="relative my-4 md:my-6">
             <div className="absolute inset-0 flex items-center">
@@ -147,25 +147,17 @@ export default function SignUp() {
           </div>
 
           {/* Social Login - Stack on mobile, side by side on tablet/desktop */}
-          <div className="w-full flex justify-center">
-            <button
-              type="button"
-              className=" w-2/3 flex items-center justify-center text-sm md:text-lg font-medium text-gray-700 hover:text-gray-800 border border-blue-600 rounded-lg  py-2 md:py-2.5 hover:bg-blue-600 transition-all duration-200"
-            >
-              Google
-            </button>
-          </div>
+         <SignIn_With_Google error={error} setError={setError} navigate={navigate}/>
 
           {/* Login Link */}
           <div className="text-center py-2 md:pt-4">
             <p className="text-xs md:text-sm text-gray-600">
               Already have an account?{" "}
-              <a
-                href="#"
+              <NavLink to="/singin"
                 className="font-medium text-blue-600 hover:text-blue-800"
               >
                 Sign in
-              </a>
+              </NavLink>
             </p>
           </div>
         </div>

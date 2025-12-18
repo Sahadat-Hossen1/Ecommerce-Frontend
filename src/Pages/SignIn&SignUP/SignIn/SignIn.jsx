@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { use_Auth_Data_Context } from "./../../Components/ContextApi/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { use_Auth_Data_Context } from "../../../Components/ContextApi/AuthContext";
+import { NavLink, useNavigate } from "react-router-dom";
+import SignIn_With_Google from "../SignIn_With_Google/SignIn_With_Google";
 
-export default function SignUp() {
+export default function SignIn() {
   //class name
   const inputClassName =
     "w-full  py-2.5 md:py-3 pl-2  text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200";
   const labelClassName = "block text-sm font-medium text-gray-700";
   //auth-data-context
-  const { handleSingIn } = use_Auth_Data_Context();
+  const { handleSignIn } = use_Auth_Data_Context();
   //
   const [error, setError] = useState("");
   //
@@ -21,9 +22,9 @@ export default function SignUp() {
     const password = form.password.value;
 
     //
-    handleSingIn(email, password)
+    handleSignIn(email, password)
       .then(() => {
-        alert("user successfully singIn");
+        alert("user successfully signIn");
         form.reset();
         setError("");
         navigate("/profile");
@@ -41,7 +42,7 @@ export default function SignUp() {
         <div className="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl overflow-hidden">
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 md:px-8 py-5 md:py-6">
             <h1 className="text-xl md:text-2xl font-bold text-white text-center">
-              SingIn
+              SignIn
             </h1>
           </div>
 
@@ -87,7 +88,7 @@ export default function SignUp() {
               type="submit"
               className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-2.5 md:py-3 px-4 rounded-lg hover:from-blue-700 hover:to-indigo-700 focus:ring-4 focus:ring-blue-200 transition-all duration-200 active:scale-[0.98] md:hover:-translate-y-0.5 text-sm md:text-base"
             >
-              Create Account
+              SignIn
             </button>
             <p className="text-red-700 text-center">{error} </p>
             {/* {error && } */}
@@ -106,25 +107,19 @@ export default function SignUp() {
           </div>
 
           {/* Social Login - Stack on mobile, side by side on tablet/desktop */}
-          <div className="w-full flex justify-center">
-            <button
-              type="button"
-              className=" w-2/3 flex items-center justify-center text-sm md:text-lg font-medium text-gray-700 hover:text-gray-800 border border-blue-600 rounded-lg  py-2 md:py-2.5 hover:bg-blue-600 transition-all duration-200"
-            >
-              Google
-            </button>
-          </div>
+                  <SignIn_With_Google error={error} setError={setError} navigate={navigate}/>
+         
 
           {/* Login Link */}
           <div className="text-center py-2 md:pt-4">
             <p className="text-xs md:text-sm text-gray-600">
-              If you don't have an account,SingUp please{" "}
-              <a
-                href="#"
+              If you don't have an account,SignUp please{" "}
+              <NavLink 
+                to="/signup"
                 className="font-medium text-blue-600 hover:text-blue-800"
               >
-                Sign in
-              </a>
+                SignUp
+              </NavLink>
             </p>
           </div>
         </div>

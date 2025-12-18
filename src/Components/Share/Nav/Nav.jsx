@@ -12,6 +12,7 @@ import SearchBar from "./SearchBar";
 import { Product_Context } from "../../ContextApi/ContextApi";
 import ShopingCartSideBar from "../../ShopingSideBar/ShopingCartSideBar";
 import { use_Auth_Data_Context } from "../../ContextApi/AuthContext";
+import Nav_User_Icon from "./Nav_User_Icon";
 
 export default function Nav() {
   //user info
@@ -70,7 +71,7 @@ export default function Nav() {
             </li>
           )}
 
-          <h1 className="font-bold uppercase text-2xl">won shop</h1>
+          <NavLink to="/" className="font-bold uppercase text-2xl">won shop</NavLink>
         </div>
         {/* this is for desktop menu */}
         <ul className="hidden md:flex space-x-4 px-3  uppercase font-semibold ">
@@ -100,9 +101,7 @@ export default function Nav() {
               </span>
             </li>
             <li>
-              <NavLink  to={User? "/profile":"/singup"}>
-                <FiUser className="w-6 h-6" />
-              </NavLink>
+             <Nav_User_Icon User={User}/>
             </li>
           </ul>
         </div>

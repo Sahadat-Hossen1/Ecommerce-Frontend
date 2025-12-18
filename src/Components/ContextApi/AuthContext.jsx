@@ -8,11 +8,17 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup
 } from "firebase/auth";
 
 export const Auth_Data_Context = createContext({});
+
+
 export default function AuthContext({ children }) {
   const auth = getAuth(app);
+  //google provider
+  const Google_Provider = new GoogleAuthProvider();
 
   const [User, setUser] = useState(null);
   //tracking user
@@ -25,9 +31,9 @@ export default function AuthContext({ children }) {
     });
   }, []);
 
-  //user singup
+  //user signup
 
-  const handleSingUpUser = async (name, email, password) => {
+  const handleSignUpUser = async (name, email, password) => {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
@@ -41,8 +47,8 @@ export default function AuthContext({ children }) {
     }
     return user;
   };
-  //SingIn
-  const handleSingIn = async (email, password) => {
+  //SignIn
+  const handleSignIn = async (email, password) => {
     const userCredential = await signInWithEmailAndPassword(
       auth,
       email,
@@ -50,19 +56,31 @@ export default function AuthContext({ children }) {
     );
     return userCredential;
   };
+  
+
+   const signIn_with_google= ()=>{
+      const userCredential=signInWithPopup(auth,Google_Provider);
+      setUser(userCredential.user)
+      return userCredential;
+  
+    }
+  
   //logout
-  const handleSingOut = async () => {
-    const singOut = await signOut(auth);
+  const handleSignOut = async () => {
+    await signOut(auth);
     setUser(null);
-    return singOut;
+   
   };
+  console.log(User);
+  
   //sending all variable to other components
   const Auth_info = {
     User,
     setUser,
-    handleSingUpUser,
-    handleSingIn,
-    handleSingOut,
+    handleSignUpUser,
+    handleSignIn,
+     handleSignOut,
+    signIn_with_google,
   };
   return (
     <Auth_Data_Context.Provider value={Auth_info}>
