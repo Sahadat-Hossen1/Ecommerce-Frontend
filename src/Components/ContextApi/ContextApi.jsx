@@ -23,7 +23,7 @@ const ContextApi = ({ children }) => {
   const [MinPrice, setMinPrice] = useState(0);
   const [MaxPrice, setMaxPrice] = useState(1000);
   //for add to cart when user add any product
-  const [Counter, setCounter] = useState(1000);
+  const [Counter, setCounter] = useState(0);
 
   const [All_addToCart_p, setAll_addToCart_p] = useState([]);
 
