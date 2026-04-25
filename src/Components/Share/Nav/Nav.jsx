@@ -91,15 +91,15 @@ export default function Nav() {
         <div className="flex justify-end items-center space-x-4 pr-2">
           <ul className="flex space-x-2">
             {/* for search icon */}
-            <li onClick={toggleSearch} className=" relative ">
+             <li onClick={toggleSearch} className=" relative ">
               <FiSearch className="w-6 h-6" />
             </li>
-            <li onClick={toggleCart} className="relative  ">
+             <li onClick={toggleCart} className="relative  ">
               <FiShoppingCart className="w-6 h-6 inline" />
               <span className="bg-red-500 px-1.5 rounded-full text-[12px] absolute -top-2 left-3 ">
                 {items}{" "}
               </span>
-            </li>
+             </li>
             <li>
              <Nav_User_Icon User={User}/>
             </li>

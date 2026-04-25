@@ -23,8 +23,6 @@ export default function SignUp() {
     const email = form.email.value;
     const age = form.age.value;
     const password = form.password.value;
-    
-//
     handleSignUpUser(name, email, password)
       .then(() => {
         alert("user successfully signUp");
