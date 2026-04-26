@@ -6,15 +6,19 @@ A modern e-commerce frontend application built with React.js, featuring product 
 
 **[Live Website](https://ecommerce-frontend-sandy-five.vercel.app/)**
 
+## 📸 Screenshots
+
+![alt text](<src/assets/Screenshot (167).png>)![alt text](<src/assets/Screenshot (168).png>)![alt text](<src/assets/Screenshot (169).png>)
+
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| React 19 | Frontend framework |
+| Technology       | Purpose             |
+| ---------------- | ------------------- |
+| React 19         | Frontend framework  |
 | React Router DOM | Client-side routing |
-| Tailwind CSS | Styling |
-| Firebase | Authentication |
-| Vite | Build tool |
+| Tailwind CSS     | Styling             |
+| Firebase         | Authentication      |
+| Vite             | Build tool          |
 
 ## 📦 Features
 
@@ -81,11 +85,11 @@ src/
 
 ## 🔧 Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run lint` | Run ESLint |
+| Command           | Description              |
+| ----------------- | ------------------------ |
+| `npm run dev`     | Start development server |
+| `npm run build`   | Build for production     |
+| `npm run lint`    | Run ESLint               |
 | `npm run preview` | Preview production build |
 
 ## 📄 License
